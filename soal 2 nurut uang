@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+void bubble_sort(int a[], int size);
+
+int main(void){
+    int uang[6];
+    int i;
+    
+    printf("masukkan seluruh uangnya : ");
+    scanf("%d %d %d %d %d %d", &uang[0], &uang[1], &uang[2], &uang[3], &uang[4], &uang[5]);
+    printf("before :");
+    for(i=0;i<6;i++)printf("%d, ", uang[i]);
+    printf("\n");
+    
+    bubble_sort(uang, 6);
+    
+    printf("after :");
+    for(i=0;i<6;i++)printf("%d, ", uang[i]);
+    printf("\n");
+    
+}
+
+void bubble_sort(int a[], int size){
+    int switched = 1;
+    int hold=0;
+    int i=0;
+    int j=0;
+    size -=1;
+    
+    for(i=0;i< size && switched ;i++ ){
+        switched = 0;
+        for(j=0;j<size-i;j++){
+            if(a[j]<a[j+1]){
+                switched =1;
+                hold=a[j];
+                a[j]=a[j+1];
+                a[j+1]=hold;
+            }
+        }
+    }
+}
